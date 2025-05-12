@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USD ⇄ RWF Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    .converter {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    label, select, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      background-color: #310435;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #479304;
+    }
+    .div{background-color: rgb(62, 4, 75);
+    width: 1000px;
+  height: 223px;
+position: absolute;top: 0;
+left: 0;}
+    #result {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      color:black
+    }
+  </style>
+</head>
+<body style="border: 12px solid gray;width: 900px;height: 490px;position: absolute;top: 0%;">
+<div >
+  <!--members of group:1:Itangaza emerance
+  2:Gisubizo divine-->
+  <center><div class="e"><div class="div"><div class="a">
+    <h1 style="color: white;"> XYZ-CAMPANY</h1> 
+    <p1 style="color: white;">CURRANCY EXCHANGE PLATFORM</p1></div>
+
+    <div class="converter"><div style="display: flex;">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount"  />
+    
+        <label for="direction">FRom</label>
+        <select id="direction">
+          <option value="usd_to_rwf">USD-$</option>
+          <option value="rwf_to_usd">FRW</option>
+        </select>
+        <label for="direction">to</label>
+        <br>
+        <select id="direction">
+          <option value="usd_to_rwf">RWANDA</option>
+          <option value="rwf_to_usd">USD</option>
+        </select></div>
+    
+      <div style="display: flex;">  <button onclick="convertCurrency()"style="width:94PX">Convert</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <P>Result</P></div>
+    
+        <div id="result"></div>
+      </div>
+    
+  <script>
+    function convertCurrency() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const direction = document.getElementById('direction').value;
+      const exchangeRate = 1250; // Example rate: 1 USD = 1250 RWF
+      let result = "";
+
+      if (isNaN(amount) || amount <= 0) {
+        result = "Please enter a valid amount.";
+      } else {
+        if (direction === "usd_to_rwf") {
+          result = `${amount} USD = ${(amount * exchangeRate).toFixed(2)} RWF`;
+        } else {
+          result = `${amount} RWF = ${(amount / exchangeRate).toFixed(2)} USD`;
+        }
+      }
+
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+
+</body>
+</html>
